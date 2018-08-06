@@ -9,7 +9,7 @@ void main(){
     printf("Now it's in %d th node,plz Enter a value :",i);
     sig = getchar();
     switch(sig){
-      const char node = i;
+      const char node = i+'0";
       case node:;break;
       case 'X' : exit(0);break;
       default:i--;break;
