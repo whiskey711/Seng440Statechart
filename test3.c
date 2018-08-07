@@ -1,27 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
+void Go_node(int node){return node+1;}
+
+void switch_with_func2Ptr(int node, void(prt2Func)(int){
+  ptr2Func(node);
+}
 
 void main(){
   int i;
   int n = 100;
-  for(i=0;i<n;i++){
+  
     char sig;
-    printf("Now it's in %d th node,plz Enter a value :",i);
+    printf("Nit's in %d th node,plz Enter a value :",i);
     sig = getchar();
     char node = i+'0';
-    char newNode[10] = "A";
-    newNode[strlen(newNode)] = node;
-    newNode[strlen(newNode)+1] = '\0';
-    if(sig == newNode){
-      printf("sig is equal to i");
-    }else if(sig =='X'){ 
-      exit(0); 
-    }else{
-      i--;
-      printf("sig is not euqal to i");
-    }
-  }
-  printf("Done");
+    while(1){
+      if(sig == node){
+       printf("sig is equal to i");
+       i = switch_with_func2Ptr(i,&Go_node);
+       node = i+'0';
+       }else if(sig =='X'){ 
+          exit(0); 
+       }else{
+          printf("sig is not euqal to i");
+       }
+   }
 
 }
